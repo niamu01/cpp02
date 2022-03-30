@@ -9,10 +9,10 @@ public:
 	Fixed(void);
 	Fixed(const int fixed); //상수 정수를 매개변수로 사용하고 이를 해당 fixed(8) 포인트 값으로 변환하는 생성자. 값은 0으로 초기화
 	Fixed(const float fixed); //상수 부동 소수점을 매개변수로 사용하고 해당 고정(8) 소수점 값으로 변환하는 생성자. 값은 0으로 초기화
-	Fixed(const Fixed &src);
+	Fixed(const Fixed &rhs);
 	~Fixed(void);
 
-	Fixed &	operator=(Fixed const &src);
+	Fixed &	operator=(Fixed const &rhs);
 
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);

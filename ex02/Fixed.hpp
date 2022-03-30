@@ -6,7 +6,7 @@
 /*   By: yeju <yeju@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 05:20:18 by yeju              #+#    #+#             */
-/*   Updated: 2022/03/25 05:20:21 by yeju             ###   ########.fr       */
+/*   Updated: 2022/03/30 21:38:59 by yeju             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,24 @@ public:
 	Fixed(void);
 	Fixed(const int fixed);
 	Fixed(const float fixed);
-	Fixed(const Fixed &src);
+	Fixed(const Fixed &rhs);
 	~Fixed(void);
 
-	Fixed & operator=(const Fixed &src);
+	Fixed & operator=(const Fixed &rhs);
 
 //비교연산자 6가지
-	bool operator>(Fixed const &src) const;
-	bool operator<(Fixed const &src) const;
-	bool operator>=(Fixed const &src) const;
-	bool operator<=(Fixed const &src) const;
-	bool operator==(Fixed const &src) const;
-	bool operator!=(Fixed const &src) const;
+	bool operator>(Fixed const &rhs) const;
+	bool operator<(Fixed const &rhs) const;
+	bool operator>=(Fixed const &rhs) const;
+	bool operator<=(Fixed const &rhs) const;
+	bool operator==(Fixed const &rhs) const;
+	bool operator!=(Fixed const &rhs) const;
 
 //산술연산자 4가지
-	Fixed operator+(Fixed const &src) const;
-	Fixed operator-(Fixed const &src) const;
-	Fixed operator*(Fixed const &src) const;
-	Fixed operator/(Fixed const &src) const;
+	Fixed operator+(Fixed const &rhs) const;
+	Fixed operator-(Fixed const &rhs) const;
+	Fixed operator*(Fixed const &rhs) const;
+	Fixed operator/(Fixed const &rhs) const;
 
 //사전증가 후증가 사전증가 사전감소: 고정소수점 값을 증가/감소 시킨다
 	Fixed & operator++(void);

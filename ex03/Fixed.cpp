@@ -6,7 +6,7 @@
 /*   By: yeju <yeju@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 05:20:14 by yeju              #+#    #+#             */
-/*   Updated: 2022/03/25 05:20:37 by yeju             ###   ########.fr       */
+/*   Updated: 2022/03/30 21:39:07 by yeju             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ Fixed::Fixed(const float value){
 	_value = roundf(value * (1 << _bits));
 }
 
-Fixed::Fixed(const Fixed &src) {
-	*this = src;
+Fixed::Fixed(const Fixed &rhs) {
+	*this = rhs;
 }
 
 Fixed::~Fixed(void) {
@@ -55,58 +55,58 @@ std::ostream&	operator<<(std::ostream &out, const Fixed &fixed) {
 	return out;
 }
 
-Fixed & Fixed::operator=(const Fixed &src) {
-	_value = src._value;
+Fixed & Fixed::operator=(const Fixed &rhs) {
+	_value = rhs._value;
 	return (*this);
 }
 
 //비교연산자 6가지
 /*
-** 단순히 들어온 src의 value와 자기자신(this)를 연산자에 맞게 비교해준다
+** 단순히 들어온 rhs의 value와 자기자신(this)를 연산자에 맞게 비교해준다
 */
 
-bool Fixed::operator>(Fixed const &src) const {
-	return (src._value < this->_value);
+bool Fixed::operator>(Fixed const &rhs) const {
+	return (rhs._value < this->_value);
 }
 
-bool Fixed::operator<(Fixed const &src) const {
-	return (src._value > this->_value);
+bool Fixed::operator<(Fixed const &rhs) const {
+	return (rhs._value > this->_value);
 }
 
-bool Fixed::operator>=(Fixed const &src) const {
-	return (src._value <= this->_value); //왜 반대?
+bool Fixed::operator>=(Fixed const &rhs) const {
+	return (rhs._value <= this->_value); //왜 반대?
 }
 
-bool Fixed::operator<=(Fixed const &src) const {
-	return (src._value >= this->_value);
+bool Fixed::operator<=(Fixed const &rhs) const {
+	return (rhs._value >= this->_value);
 }
 
-bool Fixed::operator==(Fixed const &src) const {
-	return (src._value == this->_value);
+bool Fixed::operator==(Fixed const &rhs) const {
+	return (rhs._value == this->_value);
 }
 
-bool Fixed::operator!=(Fixed const &src) const {
-	return (src._value != this->_value);
+bool Fixed::operator!=(Fixed const &rhs) const {
+	return (rhs._value != this->_value);
 }
 
 //산술연산자 4가지
 /*
-** 자기자신(this->toFloat)와 들어온 더해야할 인자(src->toFloat)을 더한 값을 
+** 자기자신(this->toFloat)와 들어온 더해야할 인자(rhs->toFloat)을 더한 값을 
 ** float를 인자로 받는 생성자를 불러 받아서 : Fixed(~~)
 ** 그 생성자를 거친 Fixed객체를 반환한다.
 */
 
-Fixed Fixed::operator+(Fixed const &src) const {
-	return (Fixed(this->toFloat() + src.toFloat()));
+Fixed Fixed::operator+(Fixed const &rhs) const {
+	return (Fixed(this->toFloat() + rhs.toFloat()));
 }
-Fixed Fixed::operator-(Fixed const &src) const {
-	return (Fixed(this->toFloat() - src.toFloat()));
+Fixed Fixed::operator-(Fixed const &rhs) const {
+	return (Fixed(this->toFloat() - rhs.toFloat()));
 }
-Fixed Fixed::operator*(Fixed const &src) const {
-	return (Fixed(this->toFloat() * src.toFloat()));
+Fixed Fixed::operator*(Fixed const &rhs) const {
+	return (Fixed(this->toFloat() * rhs.toFloat()));
 }
-Fixed Fixed::operator/(Fixed const &src) const {
-	return (Fixed(this->toFloat() / src.toFloat()));
+Fixed Fixed::operator/(Fixed const &rhs) const {
+	return (Fixed(this->toFloat() / rhs.toFloat()));
 }
 
 //증감연산자 4가지

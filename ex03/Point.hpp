@@ -9,7 +9,7 @@
 class Point {
 public:
 	Point(); //생성자
-	Point(Point const & src);
+	Point(Point const & rhs);
 	Point(Fixed const x, Fixed const y);
 	~Point(); //소멸자
 
@@ -20,7 +20,7 @@ private:
 	Fixed const _x;
 	Fixed const _y;
 	
-	Point & operator=(Point const & src);
+	Point & operator=(Point const & rhs);
 
 };
 

@@ -19,10 +19,10 @@ Fixed::Fixed(const float value)
 	std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &src)
+Fixed::Fixed(const Fixed &rhs)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
+	*this = rhs;
 }
 
 Fixed::~Fixed(void)
@@ -30,11 +30,11 @@ Fixed::~Fixed(void)
 	std::cout << "Destrutor called" << std::endl;
 }
 
-Fixed&	Fixed::operator=(const Fixed &src)
+Fixed&	Fixed::operator=(const Fixed &rhs)
 {
 	std::cout << "Assignation operation called" << std::endl;
 
-	_value = src._value;
+	_value = rhs._value;
 	return (*this);
 }
 
