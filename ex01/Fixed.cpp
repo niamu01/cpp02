@@ -18,8 +18,8 @@ Fixed::Fixed(const float value) {
 }
 
 Fixed::Fixed(const Fixed &rhs) {
-	*this = rhs;
 	std::cout << "Copy constructor called" << std::endl;
+	*this = rhs;
 }
 
 Fixed::~Fixed(void) {
@@ -27,7 +27,7 @@ Fixed::~Fixed(void) {
 }
 
 Fixed&	Fixed::operator=(const Fixed &rhs) {
-	std::cout << "Assignation operation called" << std::endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 	_value = rhs._value;
 	return (*this);
 }
@@ -49,6 +49,6 @@ float	Fixed::toFloat(void) const {
 }
 
 std::ostream&	operator<<(std::ostream &out, const Fixed &fixed) {
-	out << fixed.toFloat(); //고정 소수점 값을 toFloat 함수를 통해 부동 소수점으로 출력
+	out << fixed.toFloat();
 	return out;
 }
